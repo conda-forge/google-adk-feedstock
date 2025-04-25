@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 5d7525c10d86766f8e048d87858a992c99fa5df637af88bddba5e1a4985a6247
+  sha256: 3f1c24a49edf92d146fd8a7f2b48b287e4ab82d5db98ed7cf1c3455307e22b8a
 
 build:
   noarch: python
@@ -32,7 +32,7 @@ requirements:
     - google-cloud-secret-manager >=2.22.0
     - google-cloud-speech >=2.30.0
     - google-cloud-storage >=2.18.0,<3.0.0
-    - google-genai >=1.9.0
+    - google-genai >=1.11.0
     - python-graphviz >=0.20.2
     - mcp >=1.5.0
     - opentelemetry-api >=1.31.0
