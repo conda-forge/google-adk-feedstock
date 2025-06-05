@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 9418675574d2e9fd8a3c8e423186b86fe4ad3f211dd5da400cf24f1ef39fe2d7
+  sha256: 7ffac56d1ee457f64b3877f81aed099171c52e03ac2ef7b42de2f7f4973995e7
 
 build:
   noarch: python
@@ -23,16 +23,17 @@ requirements:
     - flit-core >=3.8,<4
     - pip
   run:
+    - typing_extensions >=4.5,<5
     - python >={{ python_min }}
     - authlib >=1.5.1
     - click >=8.1.8
     - fastapi >=0.115.0
     - google-api-python-client >=2.157.0
-    - google-cloud-aiplatform >=1.87.0
+    - google-cloud-aiplatform >=1.95.1
     - google-cloud-secret-manager >=2.22.0
     - google-cloud-speech >=2.30.0
     - google-cloud-storage >=2.18.0,<3.0.0
-    - google-genai >=1.14.0
+    - google-genai >=1.17.0
     - python-graphviz >=0.20.2
     - mcp >=1.5.0
     - opentelemetry-api >=1.31.0
