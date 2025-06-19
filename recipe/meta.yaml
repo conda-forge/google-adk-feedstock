@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "1.3.0" %}
+{% set version = "1.4.1" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 3be048cd40fb3a2c2f51ecb61233d78434cab2aba5a58507156c7daf2b9772fa
+  sha256: fc29a3840343fae660447e594d4d4851176ddc970dcaae3082bc97f403e7e832
 
 build:
   noarch: python
@@ -23,6 +23,10 @@ requirements:
     - flit-core >=3.8,<4
     - pip
   run:
+    - python-dateutil >=2.9.0.post0
+    - requests >=2.32.4
+    - starlette >=0.46.2
+    - websockets >=15.0.1
     - typing_extensions >=4.5,<5
     - python >={{ python_min }}
     - authlib >=1.5.1
