@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "1.9.0" %}
+{% set version = "1.10.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: b76df1a816c2e177e1aee525d980b9a3c1143a2a5343e39905cf161390f06856
+  sha256: 9a35fa6099c1a91c8b970ca98efb80640faad51d93520aa5d7c63ac08ebde8ba
 
 build:
   noarch: python
