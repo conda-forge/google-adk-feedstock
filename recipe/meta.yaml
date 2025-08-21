@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "1.10.0" %}
+{% set version = "1.12.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 9a35fa6099c1a91c8b970ca98efb80640faad51d93520aa5d7c63ac08ebde8ba
+  sha256: 4ff8e70f63a65ad9e147ec180e5ffe16970721936ec34eda40ae9e1621f70605
 
 build:
   noarch: python
@@ -23,35 +23,37 @@ requirements:
     - flit-core >=3.8,<4
     - pip
   run:
-    - absolufy-imports >=0.3.1
-    - tenacity >=8.0.0
-    - watchdog >=6.0.0
-    - python-dateutil >=2.9.0.post0
-    - requests >=2.32.4
-    - starlette >=0.46.2
-    - websockets >=15.0.1
+    - google-cloud-bigtable >=2.32.0
+    - google-cloud-spanner >=3.56.0,<4.0.0
+    - absolufy-imports >=0.3.1,<1.0.0
+    - tenacity >=8.0.0,<9.0.0
+    - watchdog >=6.0.0,<7.0.0
+    - python-dateutil >=2.9.0.post0,<3.0.0
+    - requests >=2.32.4,<3.0.0
+    - starlette >=0.46.2,<1.0.0
+    - websockets >=15.0.1,<16.0.0
     - typing_extensions >=4.5,<5
     - python >={{ python_min }}
-    - authlib >=1.5.1
-    - click >=8.1.8
-    - fastapi >=0.115.0
-    - google-api-python-client >=2.157.0
-    - google-cloud-aiplatform >=1.95.1
-    - google-cloud-secret-manager >=2.22.0
-    - google-cloud-speech >=2.30.0
+    - authlib >=1.5.1,<2.0.0
+    - click >=8.1.8,<9.0.0
+    - fastapi >=0.115.0,<1.0.0
+    - google-api-python-client >=2.157.0,<3.0.0
+    - google-cloud-aiplatform >=1.95.1,<2.0.0
+    - google-cloud-secret-manager >=2.22.0,<3.0.0
+    - google-cloud-speech >=2.30.0,<3.0.0
     - google-cloud-storage >=2.18.0,<3.0.0
-    - google-genai >=1.21.1
-    - python-graphviz >=0.20.2
+    - google-genai >=1.21.1,<2.0.0
+    - python-graphviz >=0.20.2,<1.0.0
     - mcp >=1.5.0
-    - opentelemetry-api >=1.31.0
-    - opentelemetry-exporter-gcp-trace >=1.9.0
-    - opentelemetry-sdk >=1.31.0
+    - opentelemetry-api >=1.31.0,<2.0.0
+    - opentelemetry-exporter-gcp-trace >=1.9.0,<2.0.0
+    - opentelemetry-sdk >=1.31.0,<2.0.0
     - pydantic >=2.0,<3.0.0
-    - python-dotenv >=1.0.0
-    - pyyaml >=6.0.2
-    - sqlalchemy >=2.0
-    - tzlocal >=5.3
-    - uvicorn >=0.34.0
+    - python-dotenv >=1.0.0,<2.0.0
+    - pyyaml >=6.0.2,<7.0.0
+    - sqlalchemy >=2.0,<3.0.0
+    - tzlocal >=5.3,<6.0
+    - uvicorn >=0.34.0,<1.0.0
 
 test:
   imports:
