@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "1.12.0" %}
+{% set version = "1.13.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 4ff8e70f63a65ad9e147ec180e5ffe16970721936ec34eda40ae9e1621f70605
+  sha256: a305d2c83031dc8582cb17088b26b19efdb9c81894bc61ddaab95e5690d8196a
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - flit-core >=3.8,<4
     - pip
   run:
+    - sqlalchemy-spanner >=1.14.0
     - google-cloud-bigtable >=2.32.0
     - google-cloud-spanner >=3.56.0,<4.0.0
     - absolufy-imports >=0.3.1,<1.0.0
