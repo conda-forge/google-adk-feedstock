@@ -1,25 +1,29 @@
-{% set name = "google-adk" %}
-{% set version = "1.14.1" %}
-{% set python_min = "3.10" %}
+schema_version: 1
+
+context:
+  name: google-adk
+  version: 1.14.1
+  python_min: 3.10
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/google_adk-${{ version }}.tar.gz
   sha256: 06caab4599286123eceb9348e4accb6c3c1476b8d9b2b13f078a975c8ace966f
 
 build:
+  number: 1
   noarch: python
-  entry_points:
-    - adk = google.adk.cli:main
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - adk = google.adk.cli:main
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python 3.10.*
     - flit-core >=3.8,<4
     - pip
   run:
@@ -34,7 +38,7 @@ requirements:
     - starlette >=0.46.2,<1.0.0
     - websockets >=15.0.1,<16.0.0
     - typing_extensions >=4.5,<5
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - authlib >=1.5.1,<2.0.0
     - click >=8.1.8,<9.0.0
     - fastapi >=0.115.0,<1.0.0
@@ -56,21 +60,24 @@ requirements:
     - tzlocal >=5.3,<6.0
     - uvicorn >=0.34.0,<1.0.0
 
-test:
-  imports:
-    - google.adk
-  commands:
-    - pip check
-    - adk --help
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - google.adk
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - adk --help
 
 about:
   summary: Agent Development Kit
-  home: https://github.com/google/adk-python
   license: Apache-2.0
   license_file: LICENSE
+  homepage: https://github.com/google/adk-python
 
 extra:
   recipe-maintainers:
