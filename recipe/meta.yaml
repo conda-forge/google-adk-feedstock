@@ -1,5 +1,5 @@
 {% set name = "google-adk" %}
-{% set version = "2.10.0" %}
+{% set version = "2.11.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
-  sha256: 9e8d64f18e91780e70bf32726250595a9ca38fc8d51d90750f7a71b44922432f
+  sha256: 59258cec8d79306192bf65e0d43fa64b764f831e3b74ed3b8e6fe9df16a1e2c8
 build:
   noarch: python
   entry_points:
