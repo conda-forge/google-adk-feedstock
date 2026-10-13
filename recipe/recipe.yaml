@@ -1,23 +1,28 @@
-{% set name = "google-adk" %}
-{% set version = "2.12.0" %}
+schema_version: 1
+
+context:
+  name: google-adk
+  version: "2.12.0"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/google_adk-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/google_adk-${{ version }}.tar.gz
   sha256: 93dfb7ff5e27d18f96520f59939faa8a7b6c21c7908161022702a3c208a37b25
+
 build:
+  number: 1
   noarch: python
-  entry_points:
-    - adk = google.adk.cli:main
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - adk = google.adk.cli:main
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - flit-core >=3.8,<4
     - pip
   run:
@@ -25,7 +30,7 @@ requirements:
     - aiohttp !=3.14.2
     - packaging >=21
     - python-multipart >=0.0.9,<1
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - aiosqlite >=0.21
     - anyio >=4.9,<5
     - authlib >=1.6.6,<2
@@ -72,21 +77,26 @@ requirements:
     - watchdog >=6,<7
     - websockets >=15.0.1,<16
 
-test:
-  imports:
-    - google.adk
-  commands:
-    - pip check
-    - adk --help
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - google.adk
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - adk --help
 
 about:
   summary: Agent Development Kit
-  home: https://github.com/google/adk-python
   license: Apache-2.0
   license_file: LICENSE
+  homepage: https://github.com/google/adk-python
 
 extra:
   recipe-maintainers:
