@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-adk
-  version: 2.13.0
+  version: 2.14.0
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/google_adk-${{ version }}.tar.gz
-  sha256: bc2389c9d41bfadd9f0c87d6bfd8d5c7eaf1c449e8906079600b8f3752ddaa88
+  sha256: c6762050a8d1edac10f03730f99500733e862b729422dbd63187154dc470b7f0
 
 build:
   number: 0
@@ -38,8 +38,8 @@ requirements:
     - google-genai >=2.30,<3
     - httpx >=0.27,<1
     - jsonschema >=4.23,<5
-    - opentelemetry-api >=1.39,<=1.44
-    - opentelemetry-sdk >=1.39,<=1.44
+    - opentelemetry-api >=1.39,<=1.45.2
+    - opentelemetry-sdk >=1.39,<=1.45.2
     - pydantic >=2.12,<3
     - python-dotenv >=1,<2
     - python-graphviz >=0.20.2,<1
