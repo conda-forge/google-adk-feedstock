@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: google-adk
-  version: 2.14.0
+  version: "2.14.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/google_adk-${{ version }}.tar.gz
-  sha256: c6762050a8d1edac10f03730f99500733e862b729422dbd63187154dc470b7f0
+  sha256: b0033571ca101f6bb8617f4791ada0f141f7ef32b0f21ff32116f1161b32ee3c
 
 build:
   number: 0
